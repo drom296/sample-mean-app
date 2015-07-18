@@ -2,14 +2,38 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <title>Starter MEAN Single Page Application</title>
 
-   <title>Starter MEAN Single Page Application</title>
-
+  <link rel="stylesheet" type="text/css" href="lib/bootstrap-css-only/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="main.css">
 </head>
-<body>
+<body ng-app="sampleApp">
+  <div class="container" ng-controller="sampleController" ng-init="find()">
+    <h1 class="text-success">we did it!</h1>
 
-   we did it!
+    <div class="list-group">
+		<a data-ng-repeat="sample in samples"
+		   data-ng-href="#!/samples/{{sample._id}}"
+		   class="list-group-item">
+			<h4 class="list-group-item-heading" data-ng-bind="sample.name"></h4>
+      <div>
+        <span>Is Active:</span>
+        <span data-ng-bind="sample.active"></span>
+      </div>
+      <div>
+        <span>Category:</span>
+        <span data-ng-bind="sample.category"></span>
+      </div>
+		</a>
+	</div>
+  </div>
 
+
+
+
+  <script type="text/javascript" src="lib/angular/angular.js"></script>
+  <script type="text/javascript" src="lib/angular-resource/angular-resource.js"></script>
+  <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
